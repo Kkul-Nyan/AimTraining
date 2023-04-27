@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
-    public Canvas canvas;
+    
     public  GameObject hitTatget;
     private Camera cam;
     Vector3 sceenCenter = new Vector3( Screen.width / 2, Screen.height / 2, 0);
@@ -39,10 +39,6 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    public void GameStart(InputAction.CallbackContext content){
-        canvas.gameObject.SetActive(false);
-        GameManager.instance.gameStart = true;
-        GameManager.instance.totalShootPoint = 0;
-    }
+
 
 }
