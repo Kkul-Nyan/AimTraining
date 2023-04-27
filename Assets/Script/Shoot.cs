@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
+    public Canvas canvas;
     public  GameObject hitTatget;
     private Camera cam;
     Vector3 sceenCenter = new Vector3( Screen.width / 2, Screen.height / 2, 0);
@@ -20,6 +21,7 @@ public class Shoot : MonoBehaviour
     public void OnAttack(InputAction.CallbackContext context){
         if(context.phase == InputActionPhase.Started){
             RaycastToObject();
+            GameManager.instance.totalShootPoint += 1;
         }
     }
 
@@ -31,6 +33,16 @@ public class Shoot : MonoBehaviour
         
         if( Physics.Raycast(ray, out rayhit, 1000f)){
             Instantiate(hitTatget, rayhit.point, Quaternion.identity);
+            if(rayhit.transform.CompareTag("Enemy")){
+                GameManager.instance.targetHitPoint += 1;
+            }
         }
     }
+
+    public void GameStart(InputAction.CallbackContext content){
+        canvas.gameObject.SetActive(false);
+        GameManager.instance.gameStart = true;
+        GameManager.instance.totalShootPoint = 0;
+    }
+
 }
