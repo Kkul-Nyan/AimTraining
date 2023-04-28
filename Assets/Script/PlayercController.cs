@@ -15,8 +15,10 @@ public class PlayercController : MonoBehaviour
     private float camCurXRot;
     public float lookSensitivity;
 
-    bool canLook = true;
+    public bool canLook = true;
     Vector2 mouseDelta;
+
+    public Canvas rCanvas;
 
 
     private void Awake() {
@@ -72,13 +74,15 @@ public class PlayercController : MonoBehaviour
 
     //결과표를 받았을때 다시 게임을 할것인지 다른 게임을 한것인지 Canvas에서 원하는 버튼을 클릭해야할때 커서락을 풀어주도록 만듬
     public void ToggleCursor(bool toggle){
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
     }
     
+    //R키를 눌리시 InputManager에서 콜백을 받아서 스크립트를 작동. 버튼을 눌리는 단계에서 GameManager에 있는 GameStart스크립트실행
     public void GamePlay(InputAction.CallbackContext context){
         if(context.phase == InputActionPhase.Started){
             GameManager.instance.GameStart();
+            rCanvas.gameObject.SetActive(false);
         }
 
     }

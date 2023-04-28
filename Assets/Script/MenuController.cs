@@ -22,15 +22,13 @@ public class MenuController : MonoBehaviour
     //1번 게임씬 이동
     public void TypeOne(){
         SceneManager.LoadScene(1);
-        GameManager.instance.canvas.gameObject.SetActive(true);
-        GameManager.instance.uiCanvas.gameObject.SetActive(true);
+
     }
 
     //2번 게임씬 이동
     public void TypeTwo(){
         SceneManager.LoadScene(2);
-        GameManager.instance.canvas.gameObject.SetActive(true);
-        GameManager.instance.uiCanvas.gameObject.SetActive(true);
+
     }
 
     //프로그램 종료

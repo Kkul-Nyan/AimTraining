@@ -11,7 +11,7 @@ public class EnemyPattern1 : MonoBehaviour
     public float randompointX;
     public Vector3 goalPoint;
     public float playTime;
-    
+
     private void Start() {
         //업데이트를 통해 플레이전에도 목표물이 움직이게 되는 부분을 방지합니다.
         goalPoint = transform.position;

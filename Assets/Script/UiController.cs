@@ -18,30 +18,38 @@ public class UiController : MonoBehaviour
     public Sprite[] awardSprite;
     public Image awardImage;
 
+    float playTime;
+    float maxPlayTime = 10f;
+
     private void Start() {
-        player = FindObjectOfType<PlayercController>();
+        player = FindObjectOfType<PlayercController>().GetComponent<PlayercController>();
         resultCanvas.SetActive(false);
+        playTime = maxPlayTime;
     }
     void Update()
     {
         CanvasControll();
+        if(GameManager.instance.isPlaying){
+            PlayTime();
+        }
     }
 
     //캔버스 위쪽에서 남은 게임시간을 보여줍니다.
     public void CanvasControll(){
         if(!GameManager.instance.isPlaying){
             //GameManager에서 설정된 게임시간을 동기화합니다.
-            timerText.text = "Timer : " + GameManager.instance.basePlayTime;
+            timerText.text = "Timer : " + maxPlayTime;
         }
         else if(GameManager.instance.isPlaying){
             //게임이 실행되면 줄어드는 시간을 GameManager에서 가져와서 동기화합니다.
-          timerText.text = "Timer : " + (float)Math.Round(GameManager.instance.playTime, 2); 
+          timerText.text = "Timer : " + (float)Math.Round(playTime, 2); 
         }
     }
 
     public void Result(){
         //PlayerController에서 만들어둔 커서토글 스크립트를 작동해서 커서락을 풀어주고, 화면을 고정시킵니다.
         player.ToggleCursor(true);
+        
         resultCanvas.SetActive(true);
 
         //GameManager가 가지고있는 맞춘 횟수와 총발사 횟수를 가져와서 켄버스 텍스트를 교체합니다.
@@ -73,18 +81,26 @@ public class UiController : MonoBehaviour
         }
     }
 
+    //게임상의 플레이 시간을 계산합니다. 게임시간이 종료되면 명중률을 계산한뒤, UIController 명령어를 수행시킵니다.
+    public void PlayTime(){
+        playTime -= Time.deltaTime;
+        if(playTime <= 0){
+            playTime = 0;
+            GameManager.instance.isPlaying = false;
+            GameManager.instance.hitPercent = GameManager.instance.targetHitPoint / GameManager.instance.totalShootPoint;
+            Result();
+        }
+    }
+
     public void OnAgainBTN(){
         // Again 버튼을 눌리시 게임씬을 다시 불려와서 처음부터 시작하게합니다.
-        SceneManager.LoadScene(1);
-        resultCanvas.SetActive(false);
-        GameManager.instance.canvas.gameObject.SetActive(true);
-        GameManager.instance.uiCanvas.gameObject.SetActive(true);
+        
+        string name = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(name);
     }
     
     public void OnExitBTN(){
         // 종료버튼을 눌리시 메인메뉴씬으로 로드합니다.
         SceneManager.LoadScene(0);
-        resultCanvas.SetActive(false);
-        GameManager.instance.uiCanvas.gameObject.SetActive(false);
     }
 }

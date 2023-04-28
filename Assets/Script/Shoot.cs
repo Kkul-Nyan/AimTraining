@@ -68,6 +68,11 @@ public class Shoot : MonoBehaviour
                 GameManager.instance.targetHitPoint += 1;
                 fireSound.Play();
             }
+            else if(rayhit.transform.CompareTag("Enemy2")){
+                GameManager.instance.targetHitPoint += 1;
+                fireSound.Play();
+                Destroy(rayhit.transform.gameObject);
+            }
         }
     }
 
