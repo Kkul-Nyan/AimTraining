@@ -75,4 +75,11 @@ public class PlayercController : MonoBehaviour
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
     }
+    
+    public void GamePlay(InputAction.CallbackContext context){
+        if(context.phase == InputActionPhase.Started){
+            GameManager.instance.GameStart();
+        }
+
+    }
 }
