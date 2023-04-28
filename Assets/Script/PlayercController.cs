@@ -70,7 +70,7 @@ public class PlayercController : MonoBehaviour
         mouseDelta = context.ReadValue<Vector2>();
     }
 
-    //혹시 차후 인벤토리등을 만들어줄경우 커서 잠금을 풀어주고 다시 잠금을 해야할수 있으므로 미리 추가해줌.
+    //결과표를 받았을때 다시 게임을 할것인지 다른 게임을 한것인지 Canvas에서 원하는 버튼을 클릭해야할때 커서락을 풀어주도록 만듬
     public void ToggleCursor(bool toggle){
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
