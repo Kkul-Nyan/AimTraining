@@ -9,7 +9,6 @@ public class Spawner : MonoBehaviour
     public float spawnPosY;
     public float spawnInterval = 1f;  
     public float spawnTime;
-    private float timeLastSpawn = 0f;
     public int minPower;
     public int maxPower;
 

@@ -35,6 +35,7 @@ public class PlayercController : MonoBehaviour
 
     private void LateUpdate() {
         if(canLook == true){
+            lookSensitivity = GameManager.instance.mauseSensitivity;
             CameraLook();    
         }
     }
