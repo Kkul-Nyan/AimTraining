@@ -35,6 +35,7 @@ public class PlayercController : MonoBehaviour
 
     private void LateUpdate() {
         if(canLook == true){
+            //GameManger에 저장된 민감도 설정값을 가져옵니다. 다른씬에 가도 동일한 민감도를 적용하게됩니다.
             lookSensitivity = GameManager.instance.mauseSensitivity;
             CameraLook();    
         }

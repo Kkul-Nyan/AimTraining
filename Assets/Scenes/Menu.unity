@@ -2282,6 +2282,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4316898779674011440, guid: 9ff14ee78b055408d94409d1cd82d1ff,
+        type: 3}
+      propertyPath: sountSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4316898779674011441, guid: 9ff14ee78b055408d94409d1cd82d1ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -2290,17 +2295,17 @@ PrefabInstance:
     - target: {fileID: 4316898779674011441, guid: 9ff14ee78b055408d94409d1cd82d1ff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 801.48126
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4316898779674011441, guid: 9ff14ee78b055408d94409d1cd82d1ff,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 595.7757
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4316898779674011441, guid: 9ff14ee78b055408d94409d1cd82d1ff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 69.1098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4316898779674011441, guid: 9ff14ee78b055408d94409d1cd82d1ff,
         type: 3}
@@ -10408,6 +10413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2102038725}
+  volumeSize: 0
   soundSlider: {fileID: 1704320745}
   sensitivitySlider: {fileID: 480293392}
   sensitivity: 0.5
@@ -10426,6 +10432,8 @@ MonoBehaviour:
   rSilder: {fileID: 963976304}
   gSilder: {fileID: 560627886}
   bSilder: {fileID: 1146713126}
+  crosshairColor: {r: 0, g: 0, b: 0, a: 0}
+  selectCrosshair: 0
 --- !u!1 &1915759858
 GameObject:
   m_ObjectHideFlags: 0

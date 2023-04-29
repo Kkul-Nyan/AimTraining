@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     public float playTime;
     public Sprite[] crosshairSprite;
 
-    public float sountSize = 100;
-    public float mauseSensitivity;
+    public float sountSize = 0.5f;
+    public float mauseSensitivity = 0.5f;
 
     public int chooseCrosshair = 1;
 
@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     private void Update() {
         Sound();
     }
+    // 옵션창에서 설정된값에 맞게 사운드 조정합니다.
     public void Sound(){
         AudioListener.volume = sountSize;
     }

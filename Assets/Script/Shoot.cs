@@ -63,11 +63,12 @@ public class Shoot : MonoBehaviour
             GameObject firePrefab = Instantiate(hitTatget, rayhit.point, Quaternion.identity);
             AudioSource fireSound = firePrefab.GetComponent<AudioSource>();
             
-            //Enemy태크를 가진 오브젝트에만 명중사운드를 실행하며, GameManager가 가지고있는 명중횟수를 1증가시킵니다.
+            //Enemy태그를 가진 오브젝트에만 명중사운드를 실행하며, GameManager가 가지고있는 명중횟수를 1증가시킵니다.
             if(rayhit.transform.CompareTag("Enemy")){
                 GameManager.instance.targetHitPoint += 1;
                 fireSound.Play();
             }
+            //Enemy2태그를 가진 오브젝트에 명중시, GameMangerrㅏ 가지고있는 명중횟수를 1증가 시키고, 타켓오브젝트를 파괴합니다.
             else if(rayhit.transform.CompareTag("Enemy2")){
                 GameManager.instance.targetHitPoint += 1;
                 fireSound.Play();

@@ -11,13 +11,11 @@ public class MenuController : MonoBehaviour
     //1번 게임씬 이동
     public void TypeOne(){
         SceneManager.LoadScene(1);
-
     }
 
     //2번 게임씬 이동
     public void TypeTwo(){
         SceneManager.LoadScene(2);
-
     }
 
     //프로그램 종료
@@ -25,6 +23,7 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
     
+    //옵션Canvas 엸기
     public void OnOptionButton(){
         optionCanvas.gameObject.SetActive(true);
         player.ToggleCursor(true);
