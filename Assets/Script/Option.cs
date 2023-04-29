@@ -26,7 +26,7 @@ public class Option : MonoBehaviour
     public Color crosshairColor;
     public int selectCrosshair;
 
-
+    public GameObject buttons;
     private void Start() {
         for(int i = 0; i < crosshairImage.Length; i++){
             crosshairImage[i].sprite = GameManager.instance.crosshairSprite[i];
@@ -99,8 +99,9 @@ public class Option : MonoBehaviour
         selectCrosshair = sprite;
    }
 
-    //변경된 값을 GameManager에 저장해줍니다. 이후 옵션캔버스를 끄고 화면을 움직일수있게 합니다.
+    //변경된 값을 GameManager에 저장해줍니다. 이후 옵션캔버스를 끄고 화면을 움직일수있게 합니다. 미리꺼두었던 메인메뉴의 버튼들도 활성화 시킵니다.
    public void OnSaveButton(){
+        buttons.SetActive(true);
         GameManager.instance.changeCrosshair = true;
         GameManager.instance.sountSize = volumeSize / 100;
         GameManager.instance.mauseSensitivity = sensitivity;
@@ -108,15 +109,16 @@ public class Option : MonoBehaviour
         GameManager.instance.chooseCrosshair = selectCrosshair;
         gameObject.SetActive(false);
         player.ToggleCursor(false);
-        
+
    }
 
    //설정에서 변경된 값들을 GameManger에 저장된 값을 통해 원상복구 시킵니다. 옵션캔버스를 끄고 화면을 움직일수 있게합니다.
    public void OnCancelButton(){
+        buttons.SetActive(true);
+        
         gameObject.SetActive(false);
         player.ToggleCursor(false);
         AudioListener.volume = GameManager.instance.sountSize;
         sensitivitySlider.value = GameManager.instance.mauseSensitivity;
-
    }
 }

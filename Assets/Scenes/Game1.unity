@@ -2012,7 +2012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  enemySpeed: 1
+  enemySpeed: 3
   limitX: 5
   limitY: 6
   randompointX: 3

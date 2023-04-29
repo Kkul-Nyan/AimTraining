@@ -77,6 +77,7 @@ public class PlayercController : MonoBehaviour
     //결과표를 받았을때 다시 게임을 할것인지 다른 게임을 한것인지 Canvas에서 원하는 버튼을 클릭해야할때 커서락을 풀어주도록 만듬
     public void ToggleCursor(bool toggle){
         canLook = !toggle;
+        GameManager.instance.canLook = canLook;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
     }
     

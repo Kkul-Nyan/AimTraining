@@ -29,10 +29,12 @@ public class Enemy : MonoBehaviour
     }
 
     private void Update() {
-        Pattern();
+        if(GameManager.instance.isPlaying){
+            Pattern();
+        }
     }
 
-
+    //Switch문을 통해 원하는 타입에 맞게 그 타입에 미리 지정된 스크립트만 작동시킵니다.
     public void Pattern(){
         switch(type){
             case EnemyType.Chaseing :

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
-
+    public bool canLook = true;
     public bool isPlaying = false;
     public float targetHitPoint;
     public float totalShootPoint;

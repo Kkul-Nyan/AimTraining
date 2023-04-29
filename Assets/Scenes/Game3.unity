@@ -155,7 +155,6 @@ Transform:
   - {fileID: 806555955}
   - {fileID: 1655431679}
   - {fileID: 70743120}
-  - {fileID: 219481379}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -591,103 +590,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &219481378
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 219481379}
-  - component: {fileID: 219481382}
-  - component: {fileID: 219481381}
-  - component: {fileID: 219481380}
-  m_Layer: 0
-  m_Name: wall
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &219481379
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219481378}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 12}
-  m_LocalScale: {x: 15.656606, y: 1.4161, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 42822651}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &219481380
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219481378}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &219481381
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219481378}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a6bf54c7ffa5f4f55b0f99d69520f510, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &219481382
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219481378}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &222304196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,14 +1660,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 132eb39571cc249ddbddf7e8bcf6a201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn:
+  type: 1
+  type1ObjectToSpawn:
   - {fileID: 4914065663144281313, guid: db15130e9583a486189c4583a36169eb, type: 3}
+  type2ObjectToSpawn:
+  - {fileID: 4914065663144281313, guid: 01c2515e344c241f88b82a3b919bb7a7, type: 3}
+  Wall: {fileID: 865086551124159356, guid: 62d823de33f6f46c4893ac3fac1becfa, type: 3}
   limitX: 6
+  limitZ: 6
   spawnPosY: 1
   spawnInterval: 1
   spawnTime: 0
   minPower: 5
   maxPower: 15
+  offset: 13
+  minWallCount: 4
+  maxWallCount: 5
+  spawnPosition: []
 --- !u!4 &1242357692
 Transform:
   m_ObjectHideFlags: 0
@@ -3047,6 +2958,7 @@ MonoBehaviour:
   mauseSensitivity: 0
   chooseCrosshair: 0
   crosshairColor: {r: 1, g: 0, b: 0, a: 1}
+  changeCrosshair: 0
 --- !u!4 &4316898778755198993
 Transform:
   m_ObjectHideFlags: 0

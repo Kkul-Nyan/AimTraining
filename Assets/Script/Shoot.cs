@@ -29,22 +29,24 @@ public class Shoot : MonoBehaviour
 
     //유니티 inputsystem에서 마우스 좌클릭이 확인되면 레이를 발사합니다.
     public void OnAttack(InputAction.CallbackContext context){
-        if(context.phase == InputActionPhase.Started){
-            if(canShoot){
-                RaycastToObject();
-                GameManager.instance.totalShootPoint += 1;
-                //파티클 프리팹을 실행합니다.
-                GameObject shootPrefab = Instantiate(ShootParticle, shootPoint.transform.position, shootPoint.transform.rotation);
-                //파티클이 가지고있는 발사오디오소스를 실행합니다.
-                AudioSource shootAudio = shootPrefab.GetComponent<AudioSource>();
-                shootAudio.Play();
-                //발사 애니메이션을 작동시킵니다.
-                anim.SetBool("Shoot",true);
-                //딜레이를 지정된 maxDelay를 통해 초기화해줍니다.
-                delayShoot = maxDelayShoot;
-                canShoot = false;
+        if(GameManager.instance.canLook){
+            if(context.phase == InputActionPhase.Started){
+                if(canShoot){
+                    RaycastToObject();
+                    GameManager.instance.totalShootPoint += 1;
+                    //파티클 프리팹을 실행합니다.
+                    GameObject shootPrefab = Instantiate(ShootParticle, shootPoint.transform.position, shootPoint.transform.rotation);
+                    //파티클이 가지고있는 발사오디오소스를 실행합니다.
+                    AudioSource shootAudio = shootPrefab.GetComponent<AudioSource>();
+                    shootAudio.Play();
+                    //발사 애니메이션을 작동시킵니다.
+                    anim.SetBool("Shoot",true);
+                    //딜레이를 지정된 maxDelay를 통해 초기화해줍니다.
+                    delayShoot = maxDelayShoot;
+                    canShoot = false;
+                }       
             }
-            
+
         }
         if(context.phase ==InputActionPhase.Canceled){
             //마우스버튼동작이 끝나면 다음 애니메이션 작동을 위해 Bool값을 변경해줍니다. HasExit기능을통해 미리 Bool값이 변동되어도 1회 실행을 하게됩니다.

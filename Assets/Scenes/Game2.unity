@@ -1758,14 +1758,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 132eb39571cc249ddbddf7e8bcf6a201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn:
+  type: 0
+  type1ObjectToSpawn:
   - {fileID: 4914065663144281313, guid: db15130e9583a486189c4583a36169eb, type: 3}
+  type2ObjectToSpawn: []
+  Wall: {fileID: 0}
   limitX: 6
+  limitZ: 0
   spawnPosY: 1
   spawnInterval: 1
   spawnTime: 0
   minPower: 5
   maxPower: 15
+  offset: 0
+  minWallCount: 0
+  maxWallCount: 0
+  spawnPosition: []
 --- !u!4 &1242357692
 Transform:
   m_ObjectHideFlags: 0
@@ -3047,6 +3055,7 @@ MonoBehaviour:
   mauseSensitivity: 0
   chooseCrosshair: 0
   crosshairColor: {r: 1, g: 0, b: 0, a: 1}
+  changeCrosshair: 0
 --- !u!4 &4316898778755198993
 Transform:
   m_ObjectHideFlags: 0
