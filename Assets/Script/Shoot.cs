@@ -29,8 +29,8 @@ public class Shoot : MonoBehaviour
 
     //유니티 inputsystem에서 마우스 좌클릭이 확인되면 레이를 발사합니다.
     public void OnAttack(InputAction.CallbackContext context){
-        if(GameManager.instance.canLook){
-            if(context.phase == InputActionPhase.Started){
+        if(context.phase == InputActionPhase.Started){
+            if(GameManager.instance.canLook){
                 if(canShoot){
                     RaycastToObject();
                     GameManager.instance.totalShootPoint += 1;

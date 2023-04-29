@@ -24,6 +24,7 @@ public class UiController : MonoBehaviour
     private void Start() {
         player = FindObjectOfType<PlayercController>().GetComponent<PlayercController>();
         resultCanvas.SetActive(false);
+        GameManager.instance.basePlayTime = maxPlayTime;
         playTime = maxPlayTime;
     }
     void Update()
@@ -94,13 +95,14 @@ public class UiController : MonoBehaviour
 
     public void OnAgainBTN(){
         // Again 버튼을 눌리시 게임씬을 다시 불려와서 처음부터 시작하게합니다.
-        
+        player.ToggleCursor(false);
         string name = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(name);
     }
     
     public void OnExitBTN(){
         // 종료버튼을 눌리시 메인메뉴씬으로 로드합니다.
+        player.ToggleCursor(false);
         SceneManager.LoadScene(0);
     }
 }
