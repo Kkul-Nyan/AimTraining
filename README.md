@@ -1,5 +1,6 @@
 # AimTraining
  
+
 ## **기능 구현 파트**
 
 ### Crosshair
@@ -74,7 +75,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //Switch문을 통해 원하는 타입에 맞게 그 타입에 미리 지정된 스크립트만 작동시킵니다.
+    //Switch문을 통해 원하는 타입에 맞게 그 타입에 지정된 스크립트를 작동시킵니다.
     public void Pattern(){
         switch(type){
             case EnemyType.Chaseing :
@@ -166,6 +167,7 @@ public class GameManager : MonoBehaviour
     public int chooseCrosshair = 1;
 
     //게임시작떄 기본 크로스헤어 색상을 설정합니다 
+    //설정에따라 변경할수 있습니다.
     public Color crosshairColor = Color.red;
     public bool changeCrosshair = false;
 
